@@ -1,0 +1,23 @@
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+        <%= message %><br>
+    <% end %>
+<% end %>
+
+<%= form_with model: @user do |form| %>
+    <div>
+        <%= form.label :username, "Username:" %>
+        <%= form.text_field :username %>
+    </div>
+    <div>
+        <%= form.label :email, "Email:" %>
+        <%= form.email_field :email, placeholder: "example@gmail.com" %>
+    </div>
+    <div>
+        <%= form.label :password, "Password:" %>
+        <%= form.password_field :password, placeholder: "Must include A-Z, a-z and symbol" %>
+    </div>
+    <div>
+        <%= form.submit "Edit" %>
+    </div>
+<% end %>
